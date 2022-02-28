@@ -1,4 +1,4 @@
-function newItem(){
+function newItem() {
 
     //1. adding a new item to list of items
     //let li = document.createElement
@@ -11,45 +11,45 @@ function newItem(){
 
     if (inputValue === '') {
         alert("You must add an item to your list");
-    } else{
+    } else {
         //let list = document.querySelector(#list);
         //list.appendChild(li)
         $('#list').append(li);
     }
 
     // 2. crossing out an item from the list of items
-        function crossOut() {
+    function crossOut() {
         //     li.classList.toggle("strike");
         li.toggleClass("strike");
-        }
+    }
 
-        // li.addEventListener("dblclick",crossOut);
-        li.on("dblclick", function crossOut() {
-            li.toggleClass("strike");
-        });
+    // li.addEventListener("dblclick",crossOut);
+    li.on("dblclick", function crossOut() {
+        li.toggleClass("strike");
+    });
 
     //3(i). Adding the delete button "X": 
-//    let crossOutButton = document.createElement("crossOutButton");
+    //    let crossOutButton = document.createElement("crossOutButton");
     let crossOutButton = $('<crossOutButton></crossOutButton>');
-//    crossOutButton.appendChild(document.createTextNode("X"));
+    //    crossOutButton.appendChild(document.createTextNode("X"));
     crossOutButton.append(document.createTextNode('X'));
-//    li.appendChild(crossOutButton);
+    //    li.appendChild(crossOutButton);
     li.append(crossOutButton);
-//    crossOutButton.addEventListener("click", deleteListItem);
+    //    crossOutButton.addEventListener("click", deleteListItem);
     crossOutButton.on("click", deleteListItem);
 
-//     //3(ii). Adding CLASS DELETE (DISPLAY: NONE) from the css:
-//     function deleteListItem(){
-//         li.classList.add("delete")
-//     }
+    //     //3(ii). Adding CLASS DELETE (DISPLAY: NONE) from the css:
+    //     function deleteListItem(){
+    //         li.classList.add("delete")
+    //     }
     crossOutButton.on("click", deleteListItem);
-        
-    function deleteListItem(){
-            li.addClass("delete");
-        }
-         //4. Reordering the items: 
-     $('#list').sortable();
+
+    function deleteListItem() {
+        li.addClass("delete");
+    }
+    //4. Reordering the items: 
+    $('#list').sortable();
 };
 
-    
+
 

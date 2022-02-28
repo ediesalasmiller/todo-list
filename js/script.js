@@ -4,7 +4,7 @@ function newItem(){
     //let li = document.createElement
     let li = $('<li></li>');
     //let inputValue= document.getElementById("input").value;
-    let inputValie = $('#input').val();
+    let inputValue = $('#input').val();
     // let text = document.createTextNode(inputValue);
     // li.appendChild(text);
     li.append(inputValue);
@@ -18,20 +18,21 @@ function newItem(){
     }
 
     // 2. crossing out an item from the list of items
-        // function crossOut() {
+        function crossOut() {
         //     li.classList.toggle("strike");
-        // }
+        li.toggleClass("strike");
+        }
 
         // li.addEventListener("dblclick",crossOut);
-    li.on("dblclick", function() {
-        li.addClass("strike");
-    });
+        li.on("dblclick", function crossOut() {
+            li.toggleClass("strike");
+        });
 
     //3(i). Adding the delete button "X": 
 //    let crossOutButton = document.createElement("crossOutButton");
-    let crossOutButton = $(<crossOutButton></crossOutButton>);
+    let crossOutButton = $('<crossOutButton></crossOutButton>');
 //    crossOutButton.appendChild(document.createTextNode("X"));
-    crossOutButton.append(document.createTextNode("X"));
+    crossOutButton.append(document.createTextNode('X'));
 //    li.appendChild(crossOutButton);
     li.append(crossOutButton);
 //    crossOutButton.addEventListener("click", deleteListItem);
@@ -41,10 +42,14 @@ function newItem(){
 //     function deleteListItem(){
 //         li.classList.add("delete")
 //     }
-    crossOutButton.on("click", function() {
-        crossOutButton.addClass("delete");
-    });
-// // 4. Reordering the items: 
-    $('#list').sortable();
+    crossOutButton.on("click", deleteListItem);
+        
+    function deleteListItem(){
+            li.addClass("delete");
+        }
+         //4. Reordering the items: 
+     $('#list').sortable();
+};
 
-}
+    
+
